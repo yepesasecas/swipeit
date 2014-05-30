@@ -7,7 +7,7 @@
 //
 
 #import "LDMViewController.h"
-#import "AFHTTPRequestOperationManager.h"
+#import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 
 @interface LDMViewController ()
 
@@ -18,12 +18,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://www.golazzos.com/partidos.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+    MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
+    options.delegate = self;
+    options.likedText = @"Keep";
+    options.likedColor = [UIColor blueColor];
+    options.nopeText = @"Delete";
+    options.onPan = ^(MDCPanState *state){
+        if (state.thresholdRatio == 1.f && state.direction == MDCSwipeDirectionLeft) {
+            NSLog(@"Let go now to delete the photo!");
+        }
+    };
+    
+    MDCSwipeToChooseView *view = [[MDCSwipeToChooseView alloc] initWithFrame:self.view.bounds
+                                                                     options:options];
+    view.imageView.image = [UIImage imageNamed:@"photo"];
+    [self.view addSubview:view];
 }
 
 - (void)didReceiveMemoryWarning

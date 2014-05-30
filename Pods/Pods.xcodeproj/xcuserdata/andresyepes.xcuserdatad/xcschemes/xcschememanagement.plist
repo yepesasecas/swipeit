@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MDCSwipeToChoose.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5B24E6A4BC2A4503B518B711</key>
+		<key>3870E5C8A7DB4131BF572AFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BDF200B7A5704EA2BF373CCA</key>
+		<key>47049E45A4914D11BB65928E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E56D162EA37F4D58B4C3B694</key>
 		<dict>
 			<key>primary</key>
 			<true/>

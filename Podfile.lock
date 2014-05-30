@@ -18,11 +18,14 @@ PODS:
   - AFNetworking/UIKit (2.2.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - MDCSwipeToChoose (0.2.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.2)
+  - MDCSwipeToChoose
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
+  MDCSwipeToChoose: 54f7b1675eff182cdc46c582360c7fca4c766a67
 
 COCOAPODS: 0.33.1
