@@ -9,11 +9,9 @@
 #import "LDMViewController.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 
-@interface LDMViewController ()
-
-@end
-
 @implementation LDMViewController
+
+#pragma mark - Creating and Customizing a MDCSwipeToChooseView
 
 - (void)viewDidLoad
 {
@@ -35,10 +33,17 @@
     [self.view addSubview:view];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - MDCSwipeToChooseDelegate Callbacks
+
+- (void)viewDidCancelSwipe:(UIView *)view {
+    NSLog(@"Couldn't decide, huh?");
 }
 
+- (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
+    if (direction == MDCSwipeDirectionLeft) {
+        NSLog(@"Photo deleted!");
+    } else {
+        NSLog(@"Photo saved!");
+    }
+}
 @end
