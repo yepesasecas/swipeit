@@ -16,6 +16,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self photoLoad];
+}
+
+#pragma mark - MDCSwipeToChooseDelegate Callbacks
+
+- (void)viewDidCancelSwipe:(UIView *)view {
+    NSLog(@"Couldn't decide, huh?");
+}
+
+- (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
+    if (direction == MDCSwipeDirectionLeft) {
+        NSLog(@"Photo deleted!");
+        [self photoLoad];
+    } else {
+        NSLog(@"Photo saved!");
+        [self photoLoad];
+    }
+}
+
+-(void)photoLoad{
     MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
     options.delegate = self;
     options.likedText = @"Keep";
@@ -31,19 +51,6 @@
                                                                      options:options];
     view.imageView.image = [UIImage imageNamed:@"photo"];
     [self.view addSubview:view];
-}
-
-#pragma mark - MDCSwipeToChooseDelegate Callbacks
-
-- (void)viewDidCancelSwipe:(UIView *)view {
-    NSLog(@"Couldn't decide, huh?");
-}
-
-- (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
-    if (direction == MDCSwipeDirectionLeft) {
-        NSLog(@"Photo deleted!");
-    } else {
-        NSLog(@"Photo saved!");
-    }
+    [self.view insertSubview:view belowSubview:view];
 }
 @end

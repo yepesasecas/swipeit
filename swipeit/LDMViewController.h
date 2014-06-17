@@ -10,4 +10,5 @@
 
 @interface LDMViewController : UIViewController
 
+-(void) photoLoad; 
 @end
